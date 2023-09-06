@@ -1,9 +1,39 @@
 ---
 title: "AOP Data EDA"
 author: "Aaron R. Williams"
-format: html
+format: 
+  html:
+    embed-resources: true
+editor_options: 
+  chunk_output_type: console
 ---
 
-## Quarto
+```{r}
+library(aopdata)
+library(tidyverse)
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+```
+
+## Read Data
+
+```{r}
+aop <- read_population(city = "brasilia")
+
+```
+
+## Schema
+
+```{r}
+dim(aop)
+
+glimpse(aop)
+
+map_dbl(.x = aop, .f = ~mean(is.na(.x)))
+
+```
+
+
+
+
+
+
